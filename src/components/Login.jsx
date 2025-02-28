@@ -14,13 +14,15 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await loginUser(formData);
-      console.log(res)
+      console.log(res);
+      
       localStorage.setItem("userId", res.data.userId);
-      localStorage.setItem("token",res.data.token)
-      localStorage.setItem("username",res.data.name)
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("username", res.data.name);
+      
       navigate("/dashboard");
     } catch (err) {
-        console.log(err)
+      console.log(err);
       alert("Login failed");
     }
   };

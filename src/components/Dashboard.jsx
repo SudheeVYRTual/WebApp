@@ -21,6 +21,11 @@ const Dashboard = () => {
   const handleAffirmationMirrorRedirect = () => {
     navigate("/affirmation-mirror");
   };
+
+  const handleChannelRedirect = () => {
+    navigate("/list-channels");
+  };
+
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>Welcome, {username}</h1>
@@ -29,6 +34,9 @@ const Dashboard = () => {
       </button>
       <button onClick={handleAffirmationMirrorRedirect} style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>
         Affirmation Mirror
+      </button>
+      <button onClick={handleChannelRedirect} style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>
+        Join Community
       </button>
     </div>
   );

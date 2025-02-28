@@ -3,7 +3,7 @@ import { sendMessage } from "../services/api";
 import Penguin from "./PenguinModel";
 import "../styles/Chat.css";
 
-const Chat = () => {
+const ChannelChat = () => {
   const [input, setInput] = useState("");
   const [aiResponse, setAiResponse] = useState("");
   const [loading, setLoading] = useState(false);
@@ -165,4 +165,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default ChannelChat;
