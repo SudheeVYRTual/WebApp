@@ -1,5 +1,6 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/dashboard.css"; // Import the new styles
 
 const Dashboard = () => {
   const [username, setUsername] = useState("");
@@ -13,24 +14,31 @@ const Dashboard = () => {
       navigate("/login");
     }
   }, [navigate]);
-
-  const handleChatRedirect = () => {
-    navigate("/chat");
-  };
-
-  const handleAffirmationMirrorRedirect = () => {
-    navigate("/affirmation-mirror");
-  };
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Welcome, {username}</h1>
-      <button onClick={handleChatRedirect} style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>
-        Go to Chat
-      </button>
-      <button onClick={handleAffirmationMirrorRedirect} style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>
-        Affirmation Mirror
-      </button>
+  <div className="dashboard-container">
+    {/* Header */}
+    <div className="dashboard-header">
+      Welcome, {username}!
     </div>
+    {/* Features Section */}
+    <div className="dashboard-section">
+      <h2 className="dashboard-title">Features</h2>
+      <div className="feature-button-grid">
+        <button className="feature-button" onClick={() => navigate("/chat")}>Penguin AI</button>
+        <button className="feature-button" onClick={() => navigate("/affirmation-mirror")}>Affirmation Mirror</button>
+        <button className="feature-button" onClick={() => navigate("/mood-capsule")}>Mood Capsule</button>
+        <button className="feature-button" onClick={() => navigate("/journal")}>Journal</button>
+        <button className="feature-button" onClick={() => navigate("/channel")}>Chat Channels</button>
+      </div>
+    </div>
+    {/* Mini Games Section */}
+    <div className="dashboard-section">
+      <h2 className="dashboard-title">Mini Games</h2>
+      <div className="feature-button-grid">
+        <button className="feature-button" onClick={() => navigate("/bubble-pop")}>Bubble Pop Game</button>
+      </div>
+    </div>
+  </div>
   );
 };
 

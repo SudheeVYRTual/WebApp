@@ -1,5 +1,8 @@
+@import "./styles/settingsButton.css";
 @import "./styles/chat.css";
 @import "./styles/affirmationMirror.css";
+@import "./styles/bubblePop.css";
+@import "./styles/dashboard.css";
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

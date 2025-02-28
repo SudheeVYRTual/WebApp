@@ -5,6 +5,9 @@ import Login from "./components/Login";
 import Chat from "./components/Chat";
 import Dashboard from "./components/Dashboard";
 import AffirmationMirror from "./components/AffirmationMirror";
+import BubblesPopGame from "./components/Bubblepop";
+import BackgroundMusic from "./components/BackgroundMusic";
+import SettingsButton from "./components/SettingsButton";
 
 const App = () => {
   const [dailyCompleted, setDailyCompleted] = useState(useState(() => {
@@ -22,6 +25,8 @@ const App = () => {
   };
   return (
     <Router>
+      <BackgroundMusic />
+      <SettingsButton />
       <Routes>
         <Route path="/" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -37,6 +42,7 @@ const App = () => {
           }
         />
         <Route path='/affirmation-mirror' element={<AffirmationMirror onComplete={handleAffirmationComplete}/>}/>
+        <Route path='/bubble-pop' element={<BubblesPopGame/>}/>
       </Routes>
     </Router>
   );
