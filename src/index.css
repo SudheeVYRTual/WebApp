@@ -1,4 +1,5 @@
 @import "./styles/chat.css";
+@import "./styles/affirmationMirror.css";
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

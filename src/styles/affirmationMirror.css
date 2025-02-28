@@ -1,0 +1,280 @@
+/* Full-screen layout */
+.mirror-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #206ea6, #ffffff);
+  padding: 20px;
+  position: relative;
+}
+
+/* 3-column grid system */
+.mirror-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* 3-column layout */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Mirror: Always centered in column 2 */
+.mirror-frame {
+  width: 90vw;
+  max-width: 600px;
+  height: 90vh;
+  max-height: 600px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  grid-column: 2; /* Centered in column 2 */
+}
+
+.mirror-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Bubble styling */
+.bubble {
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #4a4a4a;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
+  z-index: 1000;
+  width: 80%;
+  max-width: 200px;
+  word-wrap: break-word;
+}
+
+/* Bubble positioned correctly in the grid */
+.bubble.left {
+  grid-column: 1;
+  left: 5%;
+}
+
+.bubble.right {
+  grid-column: 3;
+  left: 80%;
+}
+
+/* Empty space column takes up space */
+.empty-space {
+  grid-column: auto;
+}
+@media (max-width: 1105px) {
+  .mirror-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Moves content down */
+    height: 100vh;
+    padding-bottom: 20px;
+  }
+
+  .mirror-frame {
+    width: 60vw;
+    height: 50vh;
+    max-height: 400px;
+    margin-top: auto; /* Pushes it downward */
+  }
+
+  .bubble {
+    position: absolute;
+    top: 20%;
+    width: 90%;
+    
+    max-width: 250px;
+  }
+  .bubble.right, .bubble.left {
+    left: 35%;
+    transform: translateX(-35%);
+  }
+}
+
+@media (max-width: 542px) {
+  .mirror-container {
+    justify-content: flex-end; /* Keeps everything lower */
+    padding-bottom: 40px;
+  }
+
+  .mirror-frame {
+    width: 50vw;
+    height: 45vh;
+    max-height: 350px;
+  }
+
+  .bubble {
+    top: 20%;
+    width: 85%;
+    max-width: 230px;
+  }
+}
+
+@media (max-width: 320px) {
+  .mirror-frame {
+    width: 45vw;
+    height: 40vh;
+    max-height: 300px;
+  }
+
+  .bubble {
+    top: 3%;
+    width: 80%;
+    max-width: 200px;
+  }
+}
+
+
+/* Soap bubble effect */
+.soap-bubble {
+  background-image: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.5) 20%,
+    rgba(255, 255, 255, 0.2) 40%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 150px 150px;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  opacity: 0.9;
+}
+
+/* Floating Effect */
+.bubble.float-in {
+  animation: float-in-animation 2s ease-out forwards, float-animation 3s ease-in-out infinite 2s;
+}
+.bubble.float{
+  animation: float-animation 3s ease-in-out infinite;
+}
+
+@keyframes float-in-animation {
+  0% {
+    transform: translateY(-150%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* Floating Effect (continued after the bubble reaches the center) */
+@keyframes float-animation {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateX(0) translateY(-60%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* Pop animation */
+.bubble.pop {
+  animation: pop-animation 0.5s forwards;
+}
+@keyframes pop-animation {
+  0% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50%) scale(1.3);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Jiggle animation */
+.bubble.jiggle {
+  animation: float-animation 3s ease-in-out infinite, jiggle-animation 1s ease-in-out;
+}
+
+@keyframes jiggle-animation {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0);
+  }
+  25% {
+    transform: translateY(-50%) translateX(-8px);
+  }
+  50% {
+    transform: translateY(-50%) translateX(8px);
+  }
+  75% {
+    transform: translateY(-50%) translateX(-4px);
+  }
+}
+
+.penguin-container-pop-in {
+  position: absolute;
+  bottom: -35px;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.penguin-container-pop-in.left {
+  left: 5px;
+}
+
+
+.penguin-container-pop-in.right {
+  right: -5px;
+}
+
+.penguin-image {
+  width: 200px;
+  height: 200px;
+  height: auto;
+}
+
+.penguin-bubble-container {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.penguin-bubble {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+}
+
+.penguin-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #fff transparent transparent transparent;
+}
+

@@ -18,11 +18,17 @@ const Dashboard = () => {
     navigate("/chat");
   };
 
+  const handleAffirmationMirrorRedirect = () => {
+    navigate("/affirmation-mirror");
+  };
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>Welcome, {username}</h1>
       <button onClick={handleChatRedirect} style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>
         Go to Chat
+      </button>
+      <button onClick={handleAffirmationMirrorRedirect} style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>
+        Affirmation Mirror
       </button>
     </div>
   );
