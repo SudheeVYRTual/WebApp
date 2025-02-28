@@ -8,6 +8,9 @@ import AffirmationMirror from "./components/AffirmationMirror";
 import ChannelList from "./components/ChannelList";
 import ChannelChat from "./components/ChannelChat";
 import sb from "./components/SendBird";
+import BubblesPopGame from "./components/Bubblepop";
+import BackgroundMusic from "./components/BackgroundMusic";
+import SettingsButton from "./components/SettingsButton";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -73,6 +76,8 @@ const App = () => {
 
   return (
     <Router>
+      <BackgroundMusic />
+      <SettingsButton />
       <Routes>
         <Route path="/" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -110,6 +115,7 @@ const App = () => {
             )
           }
         />
+        <Route path='/bubble-pop' element={<BubblesPopGame/>}/>
       </Routes>
     </Router>
   );

@@ -1,0 +1,103 @@
+.dashboard-container {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  background: #0c0d2b; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  }
+
+  /* Header */
+.dashboard-header {
+    width: 100%;
+    padding: 15px 30px;
+    background: #646cff;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 50px;
+  }
+
+  /* Sections */
+.dashboard-section {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    margin-bottom: 50px;
+  }
+  
+  .dashboard-title {
+    font-size: 1.8rem;
+    color: #213547;
+    margin-bottom: 15px;
+  }
+  
+  .feature-button-grid {
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  justify-content: center;
+  width: 100%;
+  }
+  
+  .feature-button {
+    padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  }
+  
+  .feature-button:hover {
+    background: #535bf2;
+  }
+
+  /* Music Controls */
+.music-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .music-controls button {
+    background: #646cff;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .music-controls button:hover {
+    background: #535bf2;
+    transform: scale(1.1);
+  }
+  
+  .music-controls button:active {
+    transform: scale(0.95);
+  }
+  
+  
+  
