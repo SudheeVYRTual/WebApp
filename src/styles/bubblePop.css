@@ -1,0 +1,8 @@
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #a8e6ff, #ffffff); /* Light blue to white */
+}
