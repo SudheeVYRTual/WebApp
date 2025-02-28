@@ -1,32 +1,13 @@
-import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-
-import bgMusic from "../assets/sounds/relaxingBg.mp3"
+import { useAudio } from "../contexts/AudioContext"; // Use the global audio context
 
 const BackgroundMusic = () => {
-    const audioRef = useRef(new Audio(bgMusic)); 
-    const [isPlaying, setIsPlaying] = useState(true);
-    const [volume, setVolume] = useState(0.3); 
+    const { isPlaying, setIsPlaying, volume, setVolume } = useAudio();
     const location = useLocation();
-    
-    // Ensure music plays throughout app
-    useEffect(() => {
-      const audio = audioRef.current;
-      audio.loop = true;
-      audio.volume = volume;
-      
-      if (isPlaying) {
-        audio.play().catch(() => console.log("Autoplay prevented"));
-      }
-    
-      return () => {
-        audio.pause();
-      };
-    }, [isPlaying, volume]);
-  
+
     // Only show controls on the dashboard
     const showControls = location.pathname === "/dashboard";
-  
+
     return (
       showControls && (
         <div className="music-controls">

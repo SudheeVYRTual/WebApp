@@ -1,30 +1,13 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import bgMusic from "../assets/sounds/relaxingBg.mp3";
+import { useAudio } from "../contexts/AudioContext"; // Use global audio context
 import controlsIcon from "../assets/controls.png";
 import "../styles/settingsButton.css";
 
 const SettingsButton = () => {
     const [showSettings, setShowSettings] = useState(false);
-    const [isPlaying, setIsPlaying] = useState(true);
-    const [volume, setVolume] = useState(0.3); 
-    const audioRef = useRef(new Audio(bgMusic));
+    const { isPlaying, setIsPlaying, volume, setVolume } = useAudio();
     const location = useLocation();
-
-    // Ensure music plays throughout app
-    useEffect(() => {
-        const audio = audioRef.current;
-        audio.loop = true;
-        audio.volume = volume;
-        
-        if (isPlaying) {
-          audio.play().catch(() => console.log("Autoplay prevented"));
-        }
-      
-        return () => {
-          audio.pause();
-        };
-    }, [isPlaying, volume]);
 
     // Hide settings on Dashboard (since controls are there)
     if (location.pathname === "/dashboard") return null;
