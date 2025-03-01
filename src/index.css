@@ -3,6 +3,7 @@
 @import "./styles/affirmationMirror.css";
 @import "./styles/bubblePop.css";
 @import "./styles/dashboard.css";
+@import "./styles/register.css";
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

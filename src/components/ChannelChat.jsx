@@ -24,7 +24,7 @@ const Chat = ({ channel, onLeaveChannel }) => {
                     console.error('Failed to load messages:', error);
                     return;
                 }
-                setMessages(fetchedMessages);
+                setMessages(fetchedMessages.reverse());
             });
 
             const channelHandler = new sb.ChannelHandler();
