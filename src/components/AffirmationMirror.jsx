@@ -137,7 +137,7 @@ const AffirmationMirror = ({ onComplete }) => {
                 setFeedbackMessage("You said something different. Let's check the similarity...");
                 const response = await postGeminiTextSimilarity(spokenText, expectedText, getJWTToken());
                 const cosineSimilarity = response.data.cosineSimilarity;
-                if (cosineSimilarity > 0.5) {
+                if (cosineSimilarity > 0.7) {
                     setFeedbackMessage("Great! You made your own similar affirmation!");
                     setBubbleEffect("pop");
                     setAffirmationSpoken(true);

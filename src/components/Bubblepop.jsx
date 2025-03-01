@@ -53,7 +53,7 @@ const BubblesPopGame = () => {
                 modalText.setOrigin(0.5, 0.5);
                 modal.add(modalText);
               
-                const rulesText = this.add.text(0, -50, "Pop as many bubbles as you can within the time limit.\nEach bubble is worth 10 points.", { fontSize: "18px", fill: "#000", align: "center", wordWrap: { width: 350 } }); // Added wordWrap to prevent overflow
+                const rulesText = this.add.text(0, -50, "Pop as many bubbles as you can.\nEach bubble is worth 10 points.", { fontSize: "18px", fill: "#000", align: "center", wordWrap: { width: 350 } }); // Added wordWrap to prevent overflow
                 rulesText.setOrigin(0.5, 0.5);
                 modal.add(rulesText);
               

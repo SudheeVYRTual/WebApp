@@ -11,6 +11,7 @@ import sb from "./components/SendBird";
 import BubblesPopGame from "./components/Bubblepop";
 import BackgroundMusic from "./components/BackgroundMusic";
 import SettingsButton from "./components/SettingsButton";
+import MoodCapsule from "./components/MoodCapsule";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -116,6 +117,7 @@ const App = () => {
           }
         />
         <Route path='/bubble-pop' element={<BubblesPopGame/>}/>
+        <Route path='/mood-capsule' element={<MoodCapsule/>}/>
       </Routes>
     </Router>
   );

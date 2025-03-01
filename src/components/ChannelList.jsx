@@ -240,7 +240,7 @@ const ChannelList = ({ user, onChannelSelect }) => {
     
 
     return (
-        <div style={{ width: '350px', padding: '20px', backgroundColor: '#f9f9f9', borderRadius: '10px', boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', maxHeight: '95vh', overflowY: 'auto' }}>
+        <div style={{ width: '1000px', padding: '20px', backgroundColor: '#f9f9f9', borderRadius: '10px', boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', maxHeight: '95vh', overflowY: 'auto',marginLeft:"150px" }}>
             
             <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#6200ea', paddingBottom: '10px', borderBottom: '2px solid #e0e0e0', marginBottom: '15px' }}>
                 Available Channels

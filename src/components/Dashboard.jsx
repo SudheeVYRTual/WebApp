@@ -27,8 +27,8 @@ const Dashboard = () => {
       <div className="feature-button-grid">
         <button className="feature-button" onClick={() => navigate("/chat")}>Penguin AI</button>
         <button className="feature-button" onClick={() => navigate("/affirmation-mirror")}>Affirmation Mirror</button>
-        <button className="feature-button" onClick={() => navigate("/mood-capsule")}>Mood Capsule</button>
-        <button className="feature-button" onClick={() => navigate("/journal")}>Journal</button>
+        <button className="feature-button" onClick={() => navigate("/mood-capsule")}>Mood Capsule + Journals</button>
+        {/* <button className="feature-button" onClick={() => navigate("/journal")}>Journal</button> */}
         <button className="feature-button" onClick={() => navigate("/list-channels")}>Chat Channels</button>
       </div>
     </div>
