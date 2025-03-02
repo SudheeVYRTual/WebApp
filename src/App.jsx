@@ -118,6 +118,7 @@ const App = () => {
         />
         <Route path='/bubble-pop' element={<BubblesPopGame/>}/>
         <Route path='/mood-capsule' element={<MoodCapsule/>}/>
+        <Route path='/slime' element={<SlimeGame />} />
       </Routes>
     </Router>
   );

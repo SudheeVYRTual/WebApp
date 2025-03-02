@@ -15,11 +15,17 @@ const Dashboard = () => {
       navigate("/login");
     }
   }, [navigate]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("username");
+    navigate("/login");
+  };
   return (
   <div className="dashboard-container">
     {/* Header */}
     <div className="dashboard-header">
       Welcome, {username}!
+      <button className="logout-button" onClick={handleLogout}>Logout</button>
     </div>
     {/* Features Section */}
     <div className="dashboard-section">

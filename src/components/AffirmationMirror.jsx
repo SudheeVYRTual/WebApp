@@ -8,7 +8,6 @@ import "../styles/affirmationMirror.css";
 import penguinImg from "../assets/penguin.png";
 import { getAffirmations, postGeminiMoodAnalysis, postGeminiTextSimilarity } from "../services/api";
 
-
 const AffirmationMirror = ({ onComplete }) => {
     const navigate = useNavigate();
     const webcamRef = React.useRef(null);
@@ -30,7 +29,7 @@ const AffirmationMirror = ({ onComplete }) => {
     const [penguinPosition, setPenguinPosition] = useState("left");
     const [userOptionsCount, setUserOptionsCount] = useState(0);
     const [loading, setLoading] = useState(false);
-    
+
     const handleOptionChange = (e) => {
         setUserOptionsCount((prev) => prev + parseInt(e.target.value));
     };
@@ -159,9 +158,19 @@ const AffirmationMirror = ({ onComplete }) => {
         }
     };
 
-    
-
-
+    const handleReadAffirmation = () => {
+        if (!window.speechSynthesis) {
+            console.error("Web Speech API is not supported in this browser.");
+            return;
+        }
+        const affirmation = affirmations[currentIndex];
+        const utterance = new SpeechSynthesisUtterance(affirmation);
+        utterance.lang = "en-US";
+        utterance.rate = 1;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        window.speechSynthesis.speak(utterance);
+    };
 
     const handleMoodSubmission = () => {
         if (moodInputType === "text") {
@@ -173,8 +182,6 @@ const AffirmationMirror = ({ onComplete }) => {
         }
         setShowQuestionnaire(false);
     };
-
-    
 
     if (dailyCompleted) {
         return (
@@ -255,7 +262,7 @@ const AffirmationMirror = ({ onComplete }) => {
                             <option value="3">I feel in control and calm</option>
                             <option value="2">A little stressed, but managing fine</option>
                             <option value="1">I'm struggling a bit</option>
-                            <option value="0">I feel completely overwhelme</option>
+                            <option value="0">I feel completely overwhelmed</option>
                         </select>
 
                         <button className="btn btn-primary mt-2" onClick={handleMoodSubmission}>
@@ -266,7 +273,6 @@ const AffirmationMirror = ({ onComplete }) => {
             </div>
         );
     }
-    
 
     return (
     <>
@@ -309,6 +315,9 @@ const AffirmationMirror = ({ onComplete }) => {
                     {currentIndex < affirmations.length - 1 ? "Next Affirmation" : "Finish"}
                 </button>
             )}
+            <button className="btn btn-secondary btn-lg" onClick={handleReadAffirmation}>
+                Read Affirmation
+            </button>
         </div>
     </div>
     {showPenguin && (
@@ -356,5 +365,3 @@ const AffirmationMirror = ({ onComplete }) => {
 };
 
 export default AffirmationMirror;
-
-
